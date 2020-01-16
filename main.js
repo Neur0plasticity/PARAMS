@@ -8,9 +8,9 @@ exports.params = function (paramsOBJ) {
         throw new Error();
     }
     for (var k in paramsOBJ) {
-        eval("params[k] = function(" + k + "){ return " + paramsOBJ[k].replace("$p", k) + "; }");
+        eval("paramsOBJ[k] = function(" + k + "){ return " + paramsOBJ[k].replace("$p", k) + "; }");
     }
-    return exports.params;
+    return paramsOBJ;
 };
 exports.paramsTerminal = function (paramsOBJ) {
     // load params file

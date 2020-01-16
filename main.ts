@@ -17,8 +17,8 @@ export const params:paramsLoader = function(paramsOBJ){
 
     // no duplicates allowed --> objects don't automatically overwrite duplications
     if (!paramsOBJ) {throw new Error();}
-    for (let k in paramsOBJ) { eval(`params[k] = function(${k}){ return ${paramsOBJ[k].replace("$p",k)}; }`); }
-    return params;
+    for (let k in paramsOBJ) { eval(`paramsOBJ[k] = function(${k}){ return ${paramsOBJ[k].replace("$p",k)}; }`); }
+    return paramsOBJ;
 };
 export const paramsTerminal:paramsLoader = function(paramsOBJ) {
 
